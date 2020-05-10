@@ -10,30 +10,32 @@ import co.edu.payroll.repository.UserRepository;
 public class UserService {
 	@Autowired
 	private UserRepository repository;
+
 	public int aveAges() {
 
-		return repository.aveAges();
+		return 0;
 
 	}
-	
+
 	public User createUser(User user) {
-		System.out.println("user creado "+ user.getName());
-		return user;
+		System.out.println("user creado " + user.getName());
+		return repository.save(user);
 	}
-	
+
 	public User updateUser(User user) {
-		System.out.println("user actualizado "+ user.getName());
+		System.out.println("user actualizado " + user.getName());
 		return user;
 	}
-	
+
 	public User findUserByEmail(String email) {
 		User user = new User();
 		user.setAge(10);
 		user.setEmail(email);
 		user.setName("andres");
+		System.out.println("user actualizado " + user.getEmail());
 		return user;
 	}
-	
+
 	public User findUserByAge(int age) {
 		User user = new User();
 		user.setAge(age);
